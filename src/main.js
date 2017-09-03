@@ -7,6 +7,12 @@ import iView from 'iview'
 import 'iview/dist/styles/iview.css';
 import VueResource from 'vue-resource';
 import '@/public/less/index.less';
+import 'video.js/dist/video-js.css';
+import 'vue-video-player/src/custom-theme.css';
+
+
+import VueVideoPlayer from 'vue-video-player'
+Vue.use(VueVideoPlayer)
 
 
 Vue.config.productionTip = false

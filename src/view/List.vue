@@ -39,12 +39,9 @@
         },
         created(){
             this.$http.post('/api/exerciseapi/monitordetail', {userName: 'ershenyuan',password:'123'}).then(response => {
-
-
             }, response => {
                 // error callback
             });
-            console.log('----444-----')
         }
     }
 </script>

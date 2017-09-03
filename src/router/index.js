@@ -5,6 +5,7 @@ import Home from '@/view/Home'
 import List from '@/view/List'
 import Info from '@/view/Info'
 import Music from '@/view/Music'
+import Video from '@/view/Video'
 import About from '@/view/About'
 import VideoInfo from '@/components/video/VideoInfo'
 
@@ -35,7 +36,7 @@ export default new Router({
     { 
       path:'/video',
       name:'video',
-      component: VideoInfo
+      component: Video
     },
     { 
       path:'/user-park',
