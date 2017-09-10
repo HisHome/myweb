@@ -2,13 +2,10 @@
   <div>
     <div>
       <div class="md-subhead">
-        <span>Base Config / 基本示例</span>
+        <h3 class="center video_title">
+          <Icon type="ios-videocam"></Icon> 视频列表
+        </h3>
       </div>
-      <button class="md-icon-button"
-                 target="_blank"
-                 href="https://github.com/surmon-china/vue-video-player/tree/master/examples/01-video.vue">
-        <span>code</span>
-      </button>
     </div>
     <div>
       <div class="item">
@@ -31,26 +28,52 @@
           </video-player>
         </div>
       </div>
+      <div>
+        <Row>
+            <Col span="6">
+                <img src="../public/img/full_image.jpg" alt="图片" style="width:100%;">
+            </Col>
+            <Col span="18">
+              
+              <p>视频简介</p>
+              <p>时长：2223</p>
+              <p>内容：阿发是方式发送大</p>
+            </Col>
+        </Row>
+      </div>
+      <div>
+        <Row>
+            <Col span="6" v-for="item in 4">
+              <h3>推荐视频</h3>
+              <div>
+                <p>
+                  奥发哦是否好石佛暗示法奥是否按时佛奥石佛asofo啊是
+                </p>
+              </div>
+            </Col>
+        </Row>
+      </div>
     </div>
   </div>
 </template>
 <script>
-// import { videoPlayer } from 'vue-video-player'
 export default {
     data() {
       return {
-        // videojs options
-        playerOptions: {
-          muted: true,
-          language: 'en',
-          playbackRates: [0.7, 1.0, 1.5, 2.0],
-          sources: [{
-            type: "video/mp4",
-            src: "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm"
-          }],
-          poster: "/static/images/author.jpg",
-        }
+          playerOptions:{
+              muted: true,
+              language: 'en',
+              playbackRates: [0.7, 1.0, 1.5, 2.0],
+              sources: [{
+                type: "video/mp4",
+                src: "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm"
+              }],
+              poster: "/public/img/full_image.jpg",
+          },
       }
+    },
+    props: {
+      fff: Object
     },
     mounted() {
       // console.log('this is current player instance object', this.player)
@@ -109,6 +132,13 @@ export default {
   }
 </script>
 <style lang="less" scoped>
-
+  .video_title{
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+  }
+  .other_video{
+    height: 200px;
+  }
 </style>
 
