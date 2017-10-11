@@ -18,31 +18,37 @@ export default new Router({
       name: 'Home',
       component: Home,
     },
+    // 文章
     { 
       path:'/text',
       name:'text',
       component: Info
     },
+    // 图片 
     { 
       path:'/pic',
       name:'pic',
       component: Info
     },
+    // 音乐 
     { 
       path:'/music',
       name:'music',
       component: Music
     },
+    // 视频
     { 
       path:'/video',
       name:'video',
       component: Video
     },
+    // 社区
     { 
       path:'/user-park',
       name:'user-park',
       component: Info
     },
+    // 其他
     { 
       path:'/other-list',
       name:'otherList',
@@ -53,14 +59,10 @@ export default new Router({
       name: 'about-web',
       component: About,
     },
+    // 关于我们
     {
       path: '/about-person',
       name: 'about-person',
-      component: About,
-    },
-    {
-      path: '/about-other',
-      name: 'about-other',
       component: About,
     },
     {
