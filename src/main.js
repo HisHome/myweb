@@ -9,11 +9,14 @@ import VueResource from 'vue-resource';
 import '@/public/less/index.less';
 import 'video.js/dist/video-js.css';
 import 'vue-video-player/src/custom-theme.css';
+import 'swiper/dist/css/swiper.css'
 
 
 import VueVideoPlayer from 'vue-video-player'
 Vue.use(VueVideoPlayer)
 
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+Vue.use(VueAwesomeSwiper)
 
 Vue.config.productionTip = false
 Vue.use(iView);

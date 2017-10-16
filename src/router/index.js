@@ -7,6 +7,7 @@ import Info from '@/view/Info'
 import Music from '@/view/Music'
 import Video from '@/view/Video'
 import About from '@/view/About'
+import Text from '@/view/Text'
 import VideoInfo from '@/components/video/VideoInfo'
 
 Vue.use(Router)
@@ -22,7 +23,7 @@ export default new Router({
     { 
       path:'/text',
       name:'text',
-      component: Info
+      component: Text
     },
     // 图片 
     { 
