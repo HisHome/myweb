@@ -23,7 +23,7 @@
             return {
                 title: '知识改变命运，技术创造世界',
                 dec: '一个基于 Vue.js 搭建的网站',
-                msg: '这是首页'
+                msg: '这是首页fdfdf'
             };
         },
         components: {
