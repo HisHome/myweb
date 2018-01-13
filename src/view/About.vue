@@ -5,10 +5,10 @@
 </template>
 <script>
     export default {
-        data (){
+        data () {
             return {
-                msg:'这是about页面',
-            }
+                msg: '这是about页面'
+            };
         }
-    }
+    };
 </script>

@@ -6,10 +6,10 @@
 </template>
 <script>
     export default {
-        data (){
+        data () {
             return {
-                msg:'这是目录list',
-                 columns1: [
+                msg: '这是目录list',
+                columns1: [
                     {
                         title: '姓名',
                         key: 'name'
@@ -35,13 +35,13 @@
                         address: '北京市海淀区西二旗'
                     }
                 ]
-            }
+            };
         },
-        created(){
-            this.$http.post('/api/exerciseapi/monitordetail', {userName: 'ershenyuan',password:'123'}).then(response => {
+        created () {
+            this.$http.post('/api/exerciseapi/monitordetail', {userName: 'ershenyuan',password: '123'}).then(response => {
             }, response => {
                 // error callback
             });
         }
-    }
+    };
 </script>

@@ -6,10 +6,10 @@
 </template>
 <script>
     export default {
-        data (){
+        data () {
             return {
-                msg:'这是目录list',
-            }
+                msg: '这是目录list'
+            };
         }
-    }
+    };
 </script>

@@ -27,31 +27,31 @@
   </div>
 </template>
 <script>
-import VueAplayer from 'vue-aplayer'
+import VueAplayer from 'vue-aplayer';
 export default {
-  data() {
-    return {
-      msg: 'hello music',
-      arr: ['', '', '', ''],
-      tabNum: 0,
-      musicData: {
-        title: 'Preparation',
-        author: '彭洋',
-        url: 'http://devtest.qiniudn.com/Preparation.mp3',
-        pic: 'http://devtest.qiniudn.com/Preparation.jpg',
-        lrc: '[00:00.00]lrc here\n[00:01.00]aplayer'
-      }
+    data () {
+        return {
+            msg: 'hello music',
+            arr: ['', '', '', ''],
+            tabNum: 0,
+            musicData: {
+                title: 'Preparation',
+                author: '彭洋',
+                url: 'http://devtest.qiniudn.com/Preparation.mp3',
+                pic: 'http://devtest.qiniudn.com/Preparation.jpg',
+                lrc: '[00:00.00]lrc here\n[00:01.00]aplayer'
+            }
+        };
+    },
+    methods: {
+        tab (index) {
+            this.tabNum = index;
+        }
+    },
+    components: {
+        VueAplayer
     }
-  },
-  methods: {
-    tab(index) {
-      this.tabNum = index;
-    }
-  },
-  components: {
-    VueAplayer
-  }
-}
+};
 </script>
 <style scoped lang="less">
 .music_sort{

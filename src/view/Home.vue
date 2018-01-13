@@ -17,20 +17,26 @@
 </template>
 <script>
     import MyHeader from '@/components/layout/Header.vue';
-    import MyFooter from '@/components/layout/Footer'
+    import MyFooter from '@/components/layout/Footer';
     export default {
-        data(){
-            return{
-                title:'知识改变命运，技术创造世界',
-                dec:'一个基于 Vue.js 搭建的网站',
-                msg:'这是首页'
-            }
+        data () {
+            return {
+                title: '知识改变命运，技术创造世界',
+                dec: '一个基于 Vue.js 搭建的网站',
+                msg: '这是首页'
+            };
         },
-        components:{
+        components: {
             MyHeader,
             MyFooter
+        },
+        methods: {
+            getdata () {
+                var data = 'llllll';
+                console.log(data);
+            }
         }
-    }
+    };
 </script>
 <style scoped lang="less"  rel="stylesheet/less">
     #home{

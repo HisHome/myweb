@@ -53,9 +53,9 @@
     </div>
 </template>
 <script>
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
 export default {
-    data() {
+    data () {
         return {
             msg: 'hello world',
             swiperOption: {
@@ -64,24 +64,24 @@ export default {
                 paginationClickable: true,
                 mousewheelControl: false,
                 observeParents: true,
-                prevButton:'.swiper-button-prev',
-                nextButton:'.swiper-button-next',
-                loop: true,
+                prevButton: '.swiper-button-prev',
+                nextButton: '.swiper-button-next',
+                loop: true
                 // scrollbar:'.swiper-scrollbar',
             },
             swiperSlides: [1, 2, 3, 4, 5]
-        }
+        };
     },
     methods: {
-        changeStar(val) {
-            console.log(val)
+        changeStar (val) {
+            console.log(val);
         }
     },
     components: {
         swiper,
         swiperSlide
     }
-}
+};
 </script>
 <style lang="less" scoped>
 .swiper-button-prev{

@@ -5,12 +5,12 @@
 </template>
 <script>
     export default {
-        data(){
+        data () {
             return {
-                msg:'Copyright © 2016 Your Company - More Templates  - Collect from '
-            }
+                msg: 'Copyright © 2016 Your Company - More Templates  - Collect from '
+            };
         }
-    }
+    };
 </script>
 <style scoped lang="less" rel="stylesheet/less">
     .footer_box{

@@ -65,13 +65,13 @@
 </template>
 <script>
     export default {
-        data(){
+        data () {
             return {
-                 title:'这是Header',
-                 theme:'light'
-            }
+                title: '这是Header',
+                theme: 'light'
+            };
         }
-    }
+    };
 </script>
 <style scoped>
     #header .ivu-menu-item-active, #header .ivu-menu-item:hover, #header .ivu-menu-submenu-active, #header .ivu-menu-submenu:hover{
