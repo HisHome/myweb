@@ -27,7 +27,18 @@ module.exports = {
         autoOpenBrowser: true,
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
-        proxyTable: {},
+        proxyTable: {
+            // 请求到 '/device' 下 的请求都会被代理到 target： http://debug.xxx.com 中
+            '/apis': {
+                // target: 'http://httpbin.org',
+                target: 'http://172.16.10.40:8106',
+                secure: false, // 接受 运行在 https 上的服务
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/apis': ''
+                }
+            }
+        },
         // CSS Sourcemaps off by default because relative paths are "buggy"
         // with this option, according to the CSS-Loader README
         // (https://github.com/webpack/css-loader#sourcemaps)

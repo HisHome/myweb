@@ -8,7 +8,7 @@
                 <h3>{{dec}}</h3>
             </div>
             <div class="btn_box">
-                <Button class="btn_nav" type="success" shape="circle" size="large"><Icon type="power"></Icon>&nbsp;目录</Button> &emsp;&emsp;
+                <Button class="btn_nav" type="success" shape="circle" size="large" @click="getdata"><Icon type="power"></Icon>&nbsp;目录</Button> &emsp;&emsp;
                 <Button style="background:#00ADB5" class="btn_nav" type="success" shape="circle" size="large"><Icon type="ios-paw"></Icon>&nbsp;简介</Button>
             </div>
         </div>
@@ -18,6 +18,7 @@
 <script>
     import MyHeader from '@/components/layout/Header.vue';
     import MyFooter from '@/components/layout/Footer';
+    import { mapGetters } from 'vuex';
     export default {
         data () {
             return {
@@ -30,10 +31,19 @@
             MyHeader,
             MyFooter
         },
+        watch: {
+            cutExerciseInfo (val, oldVal) {
+                console.log(val);
+            }
+        },
+        computed: {
+            ...mapGetters({
+                cutExerciseInfo: 'cutExerciseInfo'
+            })
+        },
         methods: {
             getdata () {
-                var data = 'llllll';
-                console.log(data);
+                this.$store.dispatch('fetchExerciseByTaskid', {ddd: 1234});
             }
         }
     };
