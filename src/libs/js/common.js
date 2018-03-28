@@ -6,12 +6,8 @@
 */
 
 'use strict';
-const client = require('./tools/client.js');
 
 function Enter (req,res,next) {
-    req._post = client.post;
-    res.header('X-Powered-By', 'willclass.com');
 
-    next();
 }
 module.exports = Enter;

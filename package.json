@@ -10,7 +10,7 @@
     "build": "node build/build.js",
     "init": "eslint --init",
     "lintfix": "eslint --fix  --ext .vue src",
-    "test40": "NODE_ENV=test node build/dev-server.js",
+    "test42": "NODE_ENV=testb node build/dev-server.js",
     "test": "NODE_ENV=test forever start -a -l /tmp/ai.log ./server/bin/aiwww -e"
   },
   "dependencies": {

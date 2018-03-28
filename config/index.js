@@ -1,5 +1,16 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path');
+var config = {
+    'local': 'http://172.16.10.40:8106',
+    'testa': 'http://172.16.10.41:8106',
+    // 'testb': 'http://172.16.10.42:8106',
+    'testb': 'http://web.exercise.willclass.com',
+    'test': 'http://172.16.10.40:8106'
+};
+console.log(process.env.NODE_ENV);
+console.log('------------');
+let url = config[process.env.NODE_ENV];
+console.log(url);
 
 module.exports = {
     build: {
@@ -31,7 +42,7 @@ module.exports = {
             // 请求到 '/device' 下 的请求都会被代理到 target： http://debug.xxx.com 中
             '/apis': {
                 // target: 'http://httpbin.org',
-                target: 'http://172.16.10.40:8106',
+                target: url,
                 secure: false, // 接受 运行在 https 上的服务
                 changeOrigin: true,
                 pathRewrite: {
