@@ -7,11 +7,7 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
-    "build": "node build/build.js",
-    "init": "eslint --init",
-    "lintfix": "eslint --fix  --ext .vue src",
-    "test42": "NODE_ENV=testb node build/dev-server.js",
-    "test": "NODE_ENV=test forever start -a -l /tmp/ai.log ./server/bin/aiwww -e"
+    "build": "node build/build.js"
   },
   "dependencies": {
     "iview": "^2.0.0-rc.19",
