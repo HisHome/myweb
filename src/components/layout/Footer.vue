@@ -1,6 +1,9 @@
 <template>
     <div class="footer_box">
-        <h3>{{msg}}</h3>
+        <h3>
+        <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/img/icons_5859e57.png" alt="">
+        <a href="http://www.miitbeian.gov.cn">京ICP备18036599号-1</a>
+        </h3>
     </div>
 </template>
 <script>
