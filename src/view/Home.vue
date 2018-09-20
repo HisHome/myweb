@@ -21,8 +21,8 @@
     export default {
         data(){
             return{
-                title:'知识改变命运，技术创造世界',
-                dec:'一个基于 Vue.js 搭建的网站',
+                title:'彭洋的网站',
+                dec:'人生中的一道道门槛，迈过了就是门，迈不过就是坎',
                 msg:'这是首页'
             }
         },
