@@ -2,7 +2,7 @@
     <div class="footer_box">
         <h3>
         <img src="../../public/img/beian.png" alt="">
-        <a href="http://www.miitbeian.gov.cn">京ICP备18036599号-1</a>
+        <a href="http://www.miitbeian.gov.cn" class="beian">京ICP备18036599号-1</a>
         </h3>
     </div>
 </template>
@@ -32,5 +32,8 @@
         color:#fcfcfc;
         border-radius:20px;
         font-weight:500;
+    }
+    .beian{
+        color:  #fff;
     }
 </style>
