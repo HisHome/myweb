@@ -1,5 +1,6 @@
 <template>
     <div class="content">
+        <MyHeader />
         <div style="height:230px;background: #b7bbbf;">
             <swiper :options="swiperOption" style="height:100%;">
                 <swiperSlide style="background:#4bb5ff;">I'm Slide 111</swiperSlide>
@@ -16,7 +17,7 @@
             <Card class="nav_blank" :bordered="false">
                 <Row>
                     <Col span="10">
-                    <p>按方向</p>
+                    <p @click="getData">按方向</p>
                     <Button style="margin-bottom:10px;margin-right:10px;" type="ghost" v-for="item in 12" :key="item">分类{{item}}</Button>
                     </Col>
                     <Col span="14">
@@ -54,6 +55,8 @@
 </template>
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import MyHeader from '@/components/layout/Header.vue';
+import MyFooter from '@/components/layout/Footer'
 export default {
     data() {
         return {
@@ -69,17 +72,36 @@ export default {
                 loop: true,
                 // scrollbar:'.swiper-scrollbar',
             },
-            swiperSlides: [1, 2, 3, 4, 5]
+            swiperSlides: [1, 2, 3, 4, 5],
+            novelList: {}
         }
     },
+    created(){
+        
+    },
+    watch:{
+        novelList(val,oldVal){
+            this.novelList = val;
+        }
+    },
+    computed: {
+        ...mapGetters({
+            novelList: 'novelList',
+        }),
+    },
     methods: {
+        getData(){
+            this.$store.dispatch('getBook',{catid:'novel',pageToken: '1'});
+        },
         changeStar(val) {
             console.log(val)
         }
     },
     components: {
         swiper,
-        swiperSlide
+        swiperSlide,
+        MyHeader,
+        MyFooter
     }
 }
 </script>
@@ -106,7 +128,7 @@ export default {
 
 .nav_blank {
     border-radius: 8px;
-    margin-top: -80px;
+    margin-top: 0px;
     box-shadow: 0 2px 10px 2px rgba(7, 17, 27, 0.1);
     padding: 15px;
 }

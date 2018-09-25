@@ -8,7 +8,7 @@
                 <h3>{{dec}}</h3>
             </div>
             <div class="btn_box">
-                <Button class="btn_nav" type="success" shape="circle" size="large"><Icon type="power"></Icon>&nbsp;目录</Button> &emsp;&emsp;
+                <Button @click="getData" class="btn_nav" type="success" shape="circle" size="large"><Icon type="power"></Icon>&nbsp;目录</Button> &emsp;&emsp;
                 <Button style="background:#00ADB5" class="btn_nav" type="success" shape="circle" size="large"><Icon type="ios-paw"></Icon>&nbsp;简介</Button>
             </div>
         </div>
@@ -24,6 +24,10 @@
                 title:'彭洋的网站-终于上线了',
                 dec:'人生中的一道道门槛，迈过了就是门，迈不过就是坎',
                 msg:'这是首页'
+            }
+        },
+        methods: {
+            getData(){
             }
         },
         components:{

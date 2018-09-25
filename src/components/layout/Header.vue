@@ -3,8 +3,10 @@
         <Menu mode="horizontal" :theme="theme" active-name="1">
             <Row>
                 <Col span="12" style="padding-left:15px;">
-                    <div style="border-bottom:0;box-sizing:border-box;background:none;">
-                        <img style="height:30px;margin-top:15px;" src="../../assets/logo.png">
+                    <div style="border-bottom:0;background:none;box-sizing:border-box;line-height:0;">
+                        <router-link to="/">
+                                <img style="height:50px;padding-top:10px;" src="../../assets/logo.png" />
+                        </router-link>
                     </div>
                 </Col>
                 <Col span="12" style="padding-right:15px;border-bottom:0;">
