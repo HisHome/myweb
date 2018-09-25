@@ -16,39 +16,44 @@
         <div class="list_content" style="position:relative;z-index:4;">
             <Card class="nav_blank" :bordered="false">
                 <Row>
-                    <Col span="10">
-                    <p @click="getData">按方向</p>
-                    <Button style="margin-bottom:10px;margin-right:10px;" type="ghost" v-for="item in 12" :key="item">分类{{item}}</Button>
-                    </Col>
-                    <Col span="14">
-                    <p>热门分类</p>
-                    <Button style="margin-bottom:10px;margin-right:10px;" type="ghost" v-for="item in 12" :key="item">热门分类{{item}}</Button>
+                    <Col span="6" class="title_box" v-for="(item, index) in textTypeList" :key="index">
+                        <div :class="{'text-type': true, [`text-${item.color}`]: true}" @click="changeCatid(item.value)">
+                            <h2 class="type_title">{{item.name}}</h2>
+                            <i-circle v-if="catid==item.value" :percent="100" stroke-color="#fff" :size="46" style="float: left;">
+                                <Icon type="ios-checkmark-empty" size="60" style="color:#fff"></Icon>
+                            </i-circle>
+                        </div>
                     </Col>
                 </Row>
             </Card>
             <div>
                 <Row>
-                    <Col class="text_box" span="6" v-for="item in 12" :key="item">
-                    <div class="text_box_info">
-                        <div class="img_box">
-                            <img width="100%" src="../public/img/text_info.jpg" alt="">
-                        </div>
-                        <div class="info_box">
-                            <h3>这是一段标题</h3>
-                            <p>这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述</p>
-                            <div class="border_title">
-                                <p>中级！123人学习</p>
-                                <Rate show-text allow-half value="2.5" @on-change="changeStar">
-                                    <span style="color: #f5a623">2.5</span>
-                                </Rate>
+                    <Col class="text_box" span="6" v-for="(item, index) in novelListData.data" :key="index">
+                        <div class="text_box_info">
+                            <div class="img_box">
+                                <!-- <img width="100%" src="../public/img/text_info.jpg" alt=""> -->
+                                <img width="100%" :src="item.coverUrl | httpImgUrl" alt="">
+                            </div>
+                            <div class="info_box">
+                                <h3 class="book-title">名称：{{item.title}}</h3>
+                                <p class="book-desc">简介：{{item.description}}</p>
+                                <div class="border_title">
+                                    <p>{{item.priceInfo}} &nbsp;&nbsp;共{{item.pageNum || '--'}}页</p>
+                                    作者：<span v-for="(write, sindex) in item.writers" :key="sindex">
+                                        {{write.name}}
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </Col>
                 </Row>
+                <div class="loading" v-if="!novelListData.data">
+                    <Icon class="ani_font" type="load-a" size="28" color="#2d8cf0"></Icon>
+                </div>
             </div>
             <div style="text-align:center;padding-top:25px;">
-                <Page :total="100"></Page>
+                <Button :disabled="currentNum === 1 ? true : false" @click="changePage('prev')">&lt; 上一页</Button> &nbsp;&nbsp;&nbsp;
+                <Button :disabled="novelListData.hasNext ? false : true" @click="changePage('next')">下一页 &gt;</Button>
             </div>
         </div>
     </div>
@@ -57,6 +62,7 @@
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import MyHeader from '@/components/layout/Header.vue';
 import MyFooter from '@/components/layout/Footer'
+import { mapGetters } from 'vuex';
 export default {
     data() {
         return {
@@ -73,7 +79,15 @@ export default {
                 // scrollbar:'.swiper-scrollbar',
             },
             swiperSlides: [1, 2, 3, 4, 5],
-            novelList: {}
+            novelListData: {},
+            currentNum: 1,
+            catid: 'novel',
+            textTypeList: [
+                {name: '小说', value: 'novel', color:'info' },
+                {name: '漫画', value: 'comic', color:'success' },
+                {name: '画集', value: 'illustration', color:'warning' },
+                {name: '其他', value: 'misc', color:'error' },
+            ]
         }
     },
     created(){
@@ -81,7 +95,7 @@ export default {
     },
     watch:{
         novelList(val,oldVal){
-            this.novelList = val;
+            this.novelListData = val;
         }
     },
     computed: {
@@ -90,11 +104,23 @@ export default {
         }),
     },
     methods: {
-        getData(){
-            this.$store.dispatch('getBook',{catid:'novel',pageToken: '1'});
+        changePage(type){
+            console.log(type)
+            if (type == 'next'){
+                this.currentNum = this.currentNum + 1;
+            } else if (type == 'prev'){
+                this.currentNum = this.currentNum - 1;
+            }
+            this.getData();
         },
-        changeStar(val) {
-            console.log(val)
+        getData(){
+            this.novelListData = {}
+            this.$store.dispatch('getBook',{catid: this.catid, pageToken: this.currentNum});
+        },
+        changeCatid(val) {
+           this.catid = val;
+           this.currentNum = 1;
+           this.getData();
         }
     },
     components: {
@@ -130,7 +156,6 @@ export default {
     border-radius: 8px;
     margin-top: 0px;
     box-shadow: 0 2px 10px 2px rgba(7, 17, 27, 0.1);
-    padding: 15px;
 }
 
 .text_box {
@@ -154,9 +179,15 @@ export default {
         box-sizing: border-box;
         padding: 15px;
         position: relative;
-        h3 {
+        .book-title {
             font-weight: 400;
             font-size: 16px;
+            height: 42px;
+            overflow: hidden;
+        }
+        .book-desc{
+            color: #999;
+            padding-top:10px; 
         }
         .border_title {
             background: #fff;
@@ -168,5 +199,65 @@ export default {
         }
     }
 }
+.title_box{
+    padding:10px;
+    text-align: center;
+}
+.text-type{
+    display: inline-block;
+    width: 100%;
+    padding:15px;
+    height: 80px;
+    line-height: 50px;
+    border-radius: 6px;
+    color: #fff;
+    overflow: hidden;
+    .type_title{
+        float: left;
+        padding: 0 10px;
+    }
+}
+.text-info{
+    background: #2d8cf0;
+}
+.text-success{
+    background: #19be6b;
+}
+.text-warning{
+    background: #ff9900;
+}
+.text-error{
+    background: #ed3f14;
+}
+.loading{
+    background: #fff;padding: 100px;text-align: center;
+}
+.ani_font{
+	  	animation:mymove 1.2s linear infinite;
+		-webkit-animation:mymove 1.2s linear infinite; /*Safari and Chrome*/
+  }
+  	@keyframes mymove
+	{
+		from {
+			transform:rotate(0deg);
+			-webkit-transform:rotate(0deg); /* Safari 和 Chrome */
+		}
+		to {
+			transform:rotate(360deg);
+			-webkit-transform:rotate(360deg); /* Safari 和 Chrome */
+		}
+	}
+
+	@-webkit-keyframes mymove /*Safari and Chrome*/
+	{
+		from {
+			transform:rotate(0deg);
+			-webkit-transform:rotate(0deg); /* Safari 和 Chrome */
+		}
+		to {
+			transform:rotate(360deg);
+			-webkit-transform:rotate(360deg); /* Safari 和 Chrome */
+		}
+	}
 </style>
 

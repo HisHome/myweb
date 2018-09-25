@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import store from '@/libs/vuex';
 import iView from 'iview'
+import '@/libs/filter';
 import 'iview/dist/styles/iview.css';
 import VueResource from 'vue-resource';
 import '@/public/less/index.less';
