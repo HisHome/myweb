@@ -1,13 +1,10 @@
 <template>
     <div class="content">
         <MyHeader />
-        <div style="height:230px;background: #b7bbbf;">
+        <div style="height:270px;background: #b7bbbf;">
             <swiper :options="swiperOption" style="height:100%;">
-                <swiperSlide style="background:#4bb5ff;">I'm Slide 111</swiperSlide>
-                <swiperSlide style="background:#f00;">I'm Slide 222</swiperSlide>
-                <swiperSlide style="background:orange;">I'm Slide 333</swiperSlide>
-                <swiperSlide style="background:pink;">I'm Slide 444</swiperSlide>
-                <!-- <div class="swiper-pagination" slot="pagination"></div> -->
+                <swiperSlide style="" v-for="(item, index) in banner" :key="index" :class="{[`banner${index + 1}`]: true}"></swiperSlide>
+                <div class="swiper-pagination" slot="pagination"></div>
                 <div class="swiper-button-prev" slot="button-prev"></div>
                 <div class="swiper-button-next" slot="button-next"></div>
                 <!-- <div class="swiper-scrollbar" slot="scrollbar"></div> -->
@@ -18,10 +15,12 @@
                 <Row>
                     <Col span="6" class="title_box" v-for="(item, index) in textTypeList" :key="index">
                         <div :class="{'text-type': true, [`text-${item.color}`]: true}" @click="changeCatid(item.value)">
-                            <h2 class="type_title">{{item.name}}</h2>
-                            <i-circle v-if="catid==item.value" :percent="100" stroke-color="#fff" :size="46" style="float: left;">
-                                <Icon type="ios-checkmark-empty" size="60" style="color:#fff"></Icon>
-                            </i-circle>
+                            <div style="display:inline-block;">
+                                <h2 class="type_title">{{item.name}}</h2>
+                                <i-circle v-if="catid==item.value" :percent="100" stroke-color="#fff" :size="46" style="float: left;">
+                                    <Icon type="ios-checkmark-empty" size="60" style="color:#fff"></Icon>
+                                </i-circle>
+                            </div>
                         </div>
                     </Col>
                 </Row>
@@ -69,7 +68,7 @@ export default {
             msg: 'hello world',
             swiperOption: {
                 setWrapperSize: true,
-                // pagination: '.swiper-pagination',
+                pagination: '.swiper-pagination',
                 paginationClickable: true,
                 mousewheelControl: false,
                 observeParents: true,
@@ -87,11 +86,17 @@ export default {
                 {name: '漫画', value: 'comic', color:'success' },
                 {name: '画集', value: 'illustration', color:'warning' },
                 {name: '其他', value: 'misc', color:'error' },
+            ],
+            banner:[
+                {url:require('../public/img/text/text1.jpg')},
+                {url:require('../public/img/text/text2.jpg')},
+                {url:require('../public/img/text/text3.jpg')},
+                {url:require('../public/img/text/text4.png')},
             ]
         }
     },
     created(){
-        
+        this.getData();
     },
     watch:{
         novelList(val,oldVal){
@@ -140,6 +145,22 @@ export default {
     // background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L5%2C44l-4.2-4.2L18.6%2C22L0.8%2C4.2L5%2C0z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
     background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
 
+}
+.banner1{
+    background: url('../public/img/text/text1.jpg') center bottom;
+    background-size: 100% auto;
+}
+.banner2{
+    background: url('../public/img/text/text2.jpg') center center;
+    background-size: 100% auto;
+}
+.banner3{
+    background: url('../public/img/text/text3.jpg') center center;
+    background-size: 100% auto;
+}
+.banner4{
+    background: url('../public/img/text/text4.png') center center;
+    background-size: 100% auto;
 }
 
 .content {
@@ -204,8 +225,6 @@ export default {
     text-align: center;
 }
 .text-type{
-    display: inline-block;
-    width: 100%;
     padding:15px;
     height: 80px;
     line-height: 50px;
