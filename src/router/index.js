@@ -6,8 +6,11 @@ import List from '@/view/List'
 import Info from '@/view/Info'
 import Music from '@/view/Music'
 import Video from '@/view/Video'
+import Pic from '@/view/Picture'
 import About from '@/view/About'
 import Text from '@/view/Text'
+import UserPark from '@/view/UserPark'
+import OtherList from '@/view/OtherList'
 import VideoInfo from '@/components/video/VideoInfo'
 
 Vue.use(Router)
@@ -29,7 +32,7 @@ export default new Router({
     { 
       path:'/pic',
       name:'pic',
-      component: Info
+      component: Pic
     },
     // 音乐 
     { 
@@ -46,13 +49,13 @@ export default new Router({
     { 
       path:'/userPark',
       name:'userPark',
-      component: Info
+      component: UserPark
     },
     // 其他
     { 
       path:'/otherList',
       name:'otherList',
-      component: Info
+      component: OtherList
     },
     {
       path: '/aboutWeb',

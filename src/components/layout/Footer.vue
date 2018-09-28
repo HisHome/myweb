@@ -1,8 +1,8 @@
 <template>
     <div class="footer_box">
-        <h3>
-        <img src="../../public/img/beian.png" alt="">
-        <a href="http://www.miitbeian.gov.cn" class="beian">京ICP备18036599号-1</a>
+        <h3 class="beian">
+            <img src="../../public/img/beian.png" alt="">
+            <a href="http://www.miitbeian.gov.cn" class="beian-num" >京ICP备18036599号-1</a>
         </h3>
     </div>
 </template>
@@ -18,22 +18,14 @@
 <style scoped lang="less" rel="stylesheet/less">
     .footer_box{
         text-align:center;
-        position:fixed;
-        left:0;
-        bottom:20px;
         width:100%;
-    }
-    .footer_box h3{
-        display:inline-block;
-        padding:4px 20px;
-        background:#777;
-        opacity:.7;
-        text-align:center;
-        color:#fcfcfc;
-        border-radius:20px;
-        font-weight:500;
+        height: 50px;
+        background: #000;
     }
     .beian{
-        color:  #fff;
+        padding-top: 15px;
+        .beian-num{
+            color:  #fff;
+        }
     }
 </style>

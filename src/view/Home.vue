@@ -1,5 +1,5 @@
 <template>
-    <div id="home" >
+    <div id="home" :style="{height: height}" >
         <!-- <MyHeader /> -->
         <div class="home_box">
             <div class="null_height"></div>
@@ -7,12 +7,12 @@
                 <h2>{{title}}</h2>
                 <h3>{{dec}}</h3>
             </div>
-            <div class="btn_box">
+            <!-- <div class="btn_box">
                 <Button @click="getData" class="btn_nav" type="success" shape="circle" size="large"><Icon type="power"></Icon>&nbsp;目录</Button> &emsp;&emsp;
                 <Button style="background:#00ADB5" class="btn_nav" type="success" shape="circle" size="large"><Icon type="ios-paw"></Icon>&nbsp;简介</Button>
-            </div>
+            </div> -->
         </div>
-        <MyFooter></MyFooter>
+        <!-- <MyFooter></MyFooter> -->
     </div>
 </template>
 <script>
@@ -23,8 +23,17 @@
             return{
                 title:'彭洋的网站-终于上线了',
                 dec:'人生中的一道道门槛，迈过了就是门，迈不过就是坎',
-                msg:'这是首页'
+                msg:'这是首页',
+                height: '500px',
             }
+        },
+        created(){
+            console.log(window.innerHeight);
+            const resize =()=>{
+                this.height = window.innerHeight - 111 +'px'
+            }
+            window.onresize = resize;
+            resize();
         },
         methods: {
             getData(){
@@ -38,7 +47,6 @@
 </script>
 <style scoped lang="less"  rel="stylesheet/less">
     #home{
-        height:100%;
         background:url('../public/img/full_image.jpg') center -75px;
     }
     .home_box{

@@ -9,7 +9,7 @@
                     </div>
                 </Col>
                 <Col span="12" style="padding-right:15px;border-bottom:0;">
-                    <Menu mode="horizontal" :theme="theme" :active-name="activeName" @on-select="changeTab">
+                    <Menu mode="horizontal" :theme="theme" :active-name="activeName" >
                         <Submenu name="3" style="float:right;border-bottom:0;border-left:1px solid #fff;">
                             <template slot="title">
                                 <Icon type="stats-bars"></Icon>
@@ -35,10 +35,12 @@
                                 </router-link>
                             </Menu-group>
                         </Submenu>
-                        <Menu-item name="1" style="float:right;border-bottom:0;border-left:1px solid #fff;">
-                               <Icon type="ios-people"></Icon>
+                        <router-link :to="{name: 'home'}">
+                            <Menu-item name="1" style="float:right;border-bottom:0;border-left:1px solid #fff;">
+                                <Icon type="ios-people"></Icon>
                                 首页
-                        </Menu-item>
+                            </Menu-item>
+                        </router-link>
                     </Menu>
                 </Col>
             </Row>
@@ -57,17 +59,18 @@
             }
         },
         created(){
-            console.log(this.menu)
-            let routeName = this.$route.name;
-            if (this.menu.config[routeName]){
-                this.activeName = this.menu.config[routeName];
-            }
+            this.changeTab();
+        },
+        watch: {
+            $route (to, form) {
+                this.changeTab();
+            },
         },
         methods:{
-            changeTab(name){
-                this.activeName = name;
-                if (name == '1'){
-                    VueRouter.push({name: 'home'});
+            changeTab(){
+                let routeName = this.$route.name;
+                if (this.menu.config[routeName]){
+                    this.activeName = this.menu.config[routeName];
                 }
             }
         }
@@ -82,5 +85,11 @@
     }
     #header{
         background:#fff;
+        border-bottom: 1px solid #e1e1e1;
+        box-sizing: border-box;
+        height: 61px;
+    }
+    .ivu-menu-horizontal.ivu-menu-light:after{
+        background: none;
     }
 </style>
