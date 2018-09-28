@@ -65,7 +65,7 @@ export default {
     };
   },
   created(){
-    // this.getData()
+    this.getData()
   },
   watch: {
     musicList(val, oldVal) {
