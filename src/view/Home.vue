@@ -1,6 +1,6 @@
 <template>
     <div id="home" >
-        <MyHeader />
+        <!-- <MyHeader /> -->
         <div class="home_box">
             <div class="null_height"></div>
             <div class="home_content">

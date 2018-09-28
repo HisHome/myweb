@@ -1,6 +1,5 @@
 <template>
     <div id="header">
-        <Menu mode="horizontal" :theme="theme" active-name="1">
             <Row>
                 <Col span="12" style="padding-left:15px;">
                     <div style="border-bottom:0;background:none;box-sizing:border-box;line-height:0;">
@@ -10,67 +9,66 @@
                     </div>
                 </Col>
                 <Col span="12" style="padding-right:15px;border-bottom:0;">
-                    <Submenu name="2" style="float:right;border-bottom:0;border-left:1px solid #fff;">
-                        <template slot="title">
-                            <Icon type="stats-bars"></Icon>
-                            简介
-                        </template>
-                            <router-link to="about-web">
-                                <Menu-item name="3-1">网站简介</Menu-item>
-                            </router-link>
-                             <router-link to="about-person">
-                                <Menu-item name="3-1">个人简介</Menu-item>
-                            </router-link>
-                             <router-link to="about-other">
-                                <Menu-item name="3-1">其他简介</Menu-item>
-                            </router-link>
-                    </Submenu>
-                    <Submenu name="2" style="float:right;border-bottom:0;border-left:1px solid #fff;">
-                        <template slot="title">
-                            <router-link to="list">
+                    <Menu mode="horizontal" :theme="theme" :active-name="activeName" @on-select="changeTab">
+                        <Submenu name="3" style="float:right;border-bottom:0;border-left:1px solid #fff;">
+                            <template slot="title">
                                 <Icon type="stats-bars"></Icon>
-                                目录
+                                简介
+                            </template>
+                            <router-link v-for="(item, index) in menu.introduction" :key="index" :to="{name: item.routerName}">
+                                <Menu-item :name="item.menuItemName">{{item.name}}</Menu-item>
                             </router-link>
-                        </template>
-                        <Menu-group title="常见列表">
-                            <router-link to="text">
-                                <Menu-item name="3-1">文章</Menu-item>
-                            </router-link>
-                            <router-link to="pic">
-                                <Menu-item name="3-1">图片</Menu-item>
-                            </router-link>
-                            <router-link to="music">
-                                <Menu-item name="3-1">音乐</Menu-item>
-                            </router-link>
-                            <router-link to="video">
-                                <Menu-item name="3-1">视频</Menu-item>
-                            </router-link>
-                        </Menu-group>
-                        <Menu-group title="其他">
-                            <router-link to="user-park">
-                                <Menu-item name="3-1">用户社区</Menu-item>
-                            </router-link>
-                            <router-link to="other-list">
-                                <Menu-item name="3-1">其他</Menu-item>
-                            </router-link>
-                        </Menu-group>
-                    </Submenu>
-                        
-                    <Menu-item name="1" style="float:right;border-bottom:0;border-left:1px solid #fff;">
-                        <Icon type="ios-people"></Icon>
-                        首页                        
-                    </Menu-item>
+                        </Submenu>
+                        <Submenu name="2" style="float:right;border-bottom:0;border-left:1px solid #fff;">
+                            <template slot="title">
+                                    <Icon type="stats-bars"></Icon>
+                                    目录
+                            </template>
+                            <Menu-group title="常见列表">
+                                <router-link v-for="(item, index) in menu.catalogue" :key="index" :to="{name: item.routerName}">
+                                    <Menu-item :name="item.menuItemName">{{item.name}}</Menu-item>
+                                </router-link>
+                            </Menu-group>
+                            <Menu-group title="其他">
+                                <router-link v-for="(item, index) in menu.other" :key="index" :to="{name: item.routerName}">
+                                    <Menu-item :name="item.menuItemName">{{item.name}}</Menu-item>
+                                </router-link>
+                            </Menu-group>
+                        </Submenu>
+                        <Menu-item name="1" style="float:right;border-bottom:0;border-left:1px solid #fff;">
+                               <Icon type="ios-people"></Icon>
+                                首页
+                        </Menu-item>
+                    </Menu>
                 </Col>
             </Row>
-        </Menu>
     </div>
 </template>
 <script>
+    import VueRouter from '@/router/index.js';
+    import menu from '@/libs/menu.js';
     export default {
         data(){
             return {
                  title:'这是Header',
-                 theme:'light'
+                 theme:'light',
+                 activeName: '1',
+                 menu: menu,
+            }
+        },
+        created(){
+            console.log(this.menu)
+            let routeName = this.$route.name;
+            if (this.menu.config[routeName]){
+                this.activeName = this.menu.config[routeName];
+            }
+        },
+        methods:{
+            changeTab(name){
+                this.activeName = name;
+                if (name == '1'){
+                    VueRouter.push({name: 'home'});
+                }
             }
         }
     }
@@ -81,5 +79,8 @@
         background:#47cb89;
         
         box-sizing:border-box;
+    }
+    #header{
+        background:#fff;
     }
 </style>

@@ -4,7 +4,12 @@ import request from '../post.js';
 function getBook(data) {
   return request.post({url: '/iDataApi/book/bangumi', data: data});
 }
+// 番茄计划
+function getMusicList(data) {
+  return request.post({url: '/iDataApi/album/bangumi', data: data});
+}
 
 export {
-  getBook
+  getBook,
+  getMusicList
 };

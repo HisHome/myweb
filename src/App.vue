@@ -1,12 +1,20 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <MyHeader />
+      <router-view></router-view>
+    <MyFooter />
   </div>
 </template>
 
 <script>
+import MyHeader from "@/components/layout/Header.vue";
+import MyFooter from "@/components/layout/Footer";
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    MyHeader,
+    MyFooter
+  }
 }
 </script>
 

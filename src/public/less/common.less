@@ -1,3 +1,52 @@
 .center{
   text-align: center;
 }
+.left{
+  text-align: left;
+}
+.right{
+  text-align: right;
+}
+.pull-left{
+  float: left;
+}
+.pull-right{
+  float: right;
+}
+.pointer{
+  cursor: pointer;
+}
+.hidden{
+  overflow: hidden;
+}
+.ani_font {
+  animation: mymove 1.2s linear infinite;
+  -webkit-animation: mymove 1.2s linear infinite; /*Safari and Chrome*/
+}
+@keyframes mymove {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg); /* Safari 和 Chrome */
+  }
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg); /* Safari 和 Chrome */
+  }
+}
+
+@-webkit-keyframes mymove /*Safari and Chrome*/ {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg); /* Safari 和 Chrome */
+  }
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg); /* Safari 和 Chrome */
+  }
+}
+.loading {
+  background: #fff;
+  padding: 100px;
+  text-align: center;
+  box-shadow: 0px 4px 8px 0px rgba(7, 17, 27, 0.1);
+}

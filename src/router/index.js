@@ -16,7 +16,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: 'home',
       component: Home,
     },
     // 文章
@@ -43,27 +43,20 @@ export default new Router({
       name:'video',
       component: Video
     },
-    // 社区
     { 
-      path:'/user-park',
-      name:'user-park',
+      path:'/userPark',
+      name:'userPark',
       component: Info
     },
     // 其他
     { 
-      path:'/other-list',
+      path:'/otherList',
       name:'otherList',
       component: Info
     },
     {
-      path: '/about-web',
-      name: 'about-web',
-      component: About,
-    },
-    // 关于我们
-    {
-      path: '/about-person',
-      name: 'about-person',
+      path: '/aboutWeb',
+      name: 'aboutWeb',
       component: About,
     },
     {
