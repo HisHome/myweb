@@ -28,9 +28,9 @@
             }
         },
         created(){
-            console.log(window.innerHeight);
+            console.log(document.body.clientHeight);
             const resize =()=>{
-                this.height = window.innerHeight - 111 +'px'
+                this.height = document.body.clientHeight  - 111 +'px'
             }
             window.onresize = resize;
             resize();
