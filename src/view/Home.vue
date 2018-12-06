@@ -7,10 +7,11 @@
                 <h2>{{title}}</h2>
                 <h3>{{dec}}</h3>
             </div>
-            <!-- <div class="btn_box">
-                <Button @click="getData" class="btn_nav" type="success" shape="circle" size="large"><Icon type="power"></Icon>&nbsp;目录</Button> &emsp;&emsp;
-                <Button style="background:#00ADB5" class="btn_nav" type="success" shape="circle" size="large"><Icon type="ios-paw"></Icon>&nbsp;简介</Button>
-            </div> -->
+            <div class="btn_box">
+                <!-- <Button @click="getData" class="btn_nav" type="success" shape="circle" size="large"><Icon type="power"></Icon>&nbsp;目录</Button> &emsp;&emsp; -->
+                <!-- <Button style="background:#00ADB5" class="btn_nav" type="success" shape="circle" size="large"><Icon type="ios-paw"></Icon>&nbsp;简介</Button> -->
+                <Button  @click="getData" style="background:#00ADB5" class="btn_nav" type="success" shape="circle" size="large"><Icon type="ios-paw"></Icon>&nbsp;下载</Button>
+            </div>
         </div>
         <!-- <MyFooter></MyFooter> -->
     </div>
@@ -18,6 +19,7 @@
 <script>
     import MyHeader from '@/components/layout/Header.vue';
     import MyFooter from '@/components/layout/Footer'
+    const ExportJsonExcel = require('js-export-excel')
     export default {
         data(){
             return{
@@ -37,6 +39,23 @@
         },
         methods: {
             getData(){
+                var option={};
+                option.fileName = '导出的excel'
+                option.datas=[
+                    {
+                        sheetData:[
+                            {one:'一行一列',two:'一行二列'},
+                            {one:'二行一列',two:'二行二列'}
+                        ],
+                        sheetName:'sheet',
+                        // sheetFilter:['one','two'],
+                        // sheetHeader:['第一列','第二列'],
+                        columnWidths: [20, 20]
+                    }
+                ];
+
+                var toExcel = new ExportJsonExcel(option); //new
+                toExcel.saveExcel(); //保存
             }
         },
         components:{

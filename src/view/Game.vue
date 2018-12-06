@@ -14,13 +14,14 @@ export default {
   },
   props: {
   },
-  mounted() {
+  created() {
 
   },
   computed: {
 
   },
   methods: {
+
   }
 }
 </script>

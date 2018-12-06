@@ -17,7 +17,9 @@ export default {
     };
   },
   props: {},
-  mounted() {},
+  mounted() {
+      console.log(3333333)
+  },
   computed: {},
   methods: {
       getData(){

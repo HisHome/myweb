@@ -13,9 +13,9 @@
                         <Submenu name="3" style="float:right;border-bottom:0;border-left:1px solid #fff;">
                             <template slot="title">
                                 <Icon type="stats-bars"></Icon>
-                                简介
+                                其他
                             </template>
-                            <router-link v-for="(item, index) in menu.introduction" :key="index" :to="{name: item.routerName}">
+                            <router-link v-for="(item, index) in menu.other" :key="index" :to="{name: item.routerName}">
                                 <Menu-item :name="item.menuItemName">{{item.name}}</Menu-item>
                             </router-link>
                         </Submenu>
@@ -30,7 +30,7 @@
                                 </router-link>
                             </Menu-group>
                             <Menu-group title="其他">
-                                <router-link v-for="(item, index) in menu.other" :key="index" :to="{name: item.routerName}">
+                                <router-link v-for="(item, index) in menu.otherList" :key="index" :to="{name: item.routerName}">
                                     <Menu-item :name="item.menuItemName">{{item.name}}</Menu-item>
                                 </router-link>
                             </Menu-group>
@@ -80,7 +80,7 @@
     #header .ivu-menu-item-active, #header .ivu-menu-item:hover, #header .ivu-menu-submenu-active, #header .ivu-menu-submenu:hover{
         color:#fff;
         background:#47cb89;
-        
+
         box-sizing:border-box;
     }
     #header{

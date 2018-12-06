@@ -15,13 +15,18 @@ const menu = {
             name: '音乐',
             menuItemName: '2-3'
         },
+        // {
+        //     routerName: 'video',
+        //     name: '视频',
+        //     menuItemName: '2-4'
+        // },
         {
-            routerName: 'video',
-            name: '视频',
-            menuItemName: '2-4'
+            routerName: 'game',
+            name: '游戏',
+            menuItemName: '2-7'
         },
     ],
-    other: [
+    otherList: [
         {
             routerName: 'userPark',
             name: '用户社区',
@@ -33,14 +38,19 @@ const menu = {
             menuItemName: '2-6'
         },
     ],
-    introduction: [
+    other: [
         {
-            routerName: 'aboutWeb',
-            name: '网站简介',
+            routerName: 'wangEditor',
+            name: 'wangEditor',
             menuItemName: '3-1'
         },
+        {
+            routerName: 'tinymce',
+            name: 'tinymce',
+            menuItemName: '3-2'
+        },
     ],
-    
+
 }
 // routerName 和对应的 menuItemName
 const config = {
@@ -51,7 +61,9 @@ const config = {
         video: '2-4',
         userPark: '2-5',
         otherList: '2-6',
-        aboutWeb: '3-1',
+        game: '2-7',
+        wangEditor: '3-1',
+        tinymce:'3-2'
 }
 export default {
     ...menu,
