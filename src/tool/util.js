@@ -24,6 +24,7 @@ const config = {
         ],
         showLinkImg: false,
         uploadImgMaxSize: 3 * 1024 * 1024,
+        uploadImgMaxLength: 1,
         customUploadImg:function(files, insert){
             console.log(files)
             /* 创建Ajax并提交 */
