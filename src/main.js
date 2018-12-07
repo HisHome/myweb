@@ -9,6 +9,7 @@ import '@/libs/filter';
 import 'iview/dist/styles/iview.css';
 import VueResource from 'vue-resource';
 import '@/public/less/index.less';
+import '@/public/css/wangEditor.min.css';
 import 'video.js/dist/video-js.css';
 import 'vue-video-player/src/custom-theme.css';
 import 'swiper/dist/css/swiper.css'
@@ -24,7 +25,7 @@ Vue.config.productionTip = false
 Vue.use(iView);
 Vue.use(VueResource);
 
-// eslint-disable no-new 
+// eslint-disable no-new
 new Vue({
   el: '#app',
   router,

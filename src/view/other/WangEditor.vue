@@ -4,7 +4,7 @@
     <div>
         <WangEditor v-model="editorContent" />
     </div>
-    <div style="border: 1px solid #ccc;padding: 10px;margin-top: 10px;font-size: 16px;" v-html="editorContent"> </div>
+    <div class="w-e-text" style="border: 1px solid #ccc;padding: 10px;margin-top: 10px;font-size: 16px;" v-html="editorContent"> </div>
   </div>
 </template>
 <script>

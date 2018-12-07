@@ -1,3 +1,5 @@
+import emoji from "@/tool/emoji.js";
+
 const config = {
     wangEditorCustomConfig: {
         menus: [
@@ -22,11 +24,35 @@ const config = {
             'undo',  // 撤销
             'redo'  // 重复
         ],
+        emotions: [
+            {
+                // tab 的标题
+                title: '默认',
+                // type -> 'emoji' / 'image'
+                type: 'emoji',
+                // content -> 数组
+                content: ['😁','😂','😃','😄','😅','😆','😉','😊','😋','😎','😍','😘','😗','😙','😚','😇','😐','😑','😶','😏','😣','😥','😮','😯','😪','😫','😴','😌','😛','😜','😝','😒','😓','😔','😕','😲','😷','😖','😞','😟','😤','😢','😭','😦','😧','😨','😬','😰','😱','😳','😵','😡','😠']
+
+            },
+            {
+                // tab 的标题
+                title: '新浪',
+                // type -> 'emoji' / 'image'
+                type: 'image',
+                // content -> 数组
+                content: emoji.weibo.map((item)=>{
+                    return {
+                        alt: item.phrase,
+                        src: item.url,
+                    }
+                })
+            },
+
+        ],
         showLinkImg: false,
         uploadImgMaxSize: 3 * 1024 * 1024,
         uploadImgMaxLength: 1,
         customUploadImg:function(files, insert){
-            console.log(files)
             /* 创建Ajax并提交 */
             let xhr = new XMLHttpRequest();
             let fileForm = new FormData();
