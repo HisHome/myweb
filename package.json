@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-decoupled-document": "^11.2.0",
     "iview": "^2.0.0-rc.19",
     "vue": "^2.3.3",
     "vue-aplayer": "^0.1.1",
@@ -20,6 +21,7 @@
     "vuex": "^2.2.1"
   },
   "devDependencies": {
+    "@tinymce/tinymce-vue": "^1.1.0",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-loader": "^7.1.1",

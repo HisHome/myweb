@@ -18,6 +18,7 @@ import VideoInfo from '@/components/video/VideoInfo'
 import Other from '@/view/other/Other'
 import WangEditor from '@/view/other/WangEditor'
 import Tinymce from '@/view/other/Tinymce'
+import CKEditor from '@/view/other/CKEditor'
 
 
 Vue.use(Router)
@@ -83,9 +84,14 @@ export default new Router({
                 component: WangEditor
             },
             {
-            path: 'tinymce',
-            name: 'tinymce',
-            component: Tinymce
+                path: 'tinymce',
+                name: 'tinymce',
+                component: Tinymce
+            },
+            {
+                path: 'ckEditor',
+                name: 'ckEditor',
+                component: CKEditor
             }
         ]
     },

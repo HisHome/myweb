@@ -1,10 +1,10 @@
 <template>
   <div id="picture">
     <h1 class="center" @click="getData" >WangEditor</h1>
-    <div>
+    <div style="padding: 20px;">
         <WangEditor v-model="editorContent" />
+        <div class="w-e-text" style="border: 1px solid #ccc;padding: 10px;margin-top: 20px;font-size: 16px;" v-html="editorContent"> </div>
     </div>
-    <div class="w-e-text" style="border: 1px solid #ccc;padding: 10px;margin-top: 10px;font-size: 16px;" v-html="editorContent"> </div>
   </div>
 </template>
 <script>
@@ -34,7 +34,7 @@ export default {
 </script>
 <style lang="less" scoped>
 #picture {
-  padding: 60px;
+  padding: 20px;
   min-height: 800px;
 }
 </style>

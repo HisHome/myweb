@@ -49,6 +49,11 @@ const menu = {
             name: 'tinymce',
             menuItemName: '3-2'
         },
+        {
+            routerName: 'ckEditor',
+            name: 'ckEditor',
+            menuItemName: '3-3'
+        },
     ],
 
 }
@@ -63,7 +68,8 @@ const config = {
         otherList: '2-6',
         game: '2-7',
         wangEditor: '3-1',
-        tinymce:'3-2'
+        tinymce:'3-2',
+        ckEditor: '3-3',
 }
 export default {
     ...menu,
