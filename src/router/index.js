@@ -18,7 +18,16 @@ import VideoInfo from '@/components/video/VideoInfo'
 import Other from '@/view/other/Other'
 import WangEditor from '@/view/other/WangEditor'
 import Tinymce from '@/view/other/Tinymce'
-import CKEditor from '@/view/other/CKEditor'
+import CKEditor5 from '@/view/other/CKEditor5'
+import CKEditor4 from '@/view/other/CKEditor4'
+import SVG from '@/view/other/SVG'
+
+import Createjs from '@/view/createjs/Createjs'
+import Easeljs from '@/view/createjs/Easeljs'
+import Tweenjs from '@/view/createjs/Tweenjs'
+import Soundjs from '@/view/createjs/Soundjs'
+import Preloadjs from '@/view/createjs/Preloadjs'
+
 
 
 Vue.use(Router)
@@ -91,7 +100,42 @@ export default new Router({
             {
                 path: 'ckEditor',
                 name: 'ckEditor',
-                component: CKEditor
+                component: CKEditor5
+            },
+            {
+                path: 'ckEditor4',
+                name: 'ckEditor4',
+                component: CKEditor4
+            },
+            {
+                path: 'svg',
+                name: 'svg',
+                component: SVG
+            }
+        ]
+    },
+    {   path: '/createjs',
+        component: Createjs,
+        children: [
+            {
+                path: 'easeljs',
+                name: 'easeljs',
+                component: Easeljs
+            },
+            {
+                path: 'tweenjs',
+                name: 'tweenjs',
+                component: Tweenjs
+            },
+            {
+                path: 'soundjs',
+                name: 'soundjs',
+                component: Soundjs
+            },
+            {
+                path: 'preloadjs',
+                name: 'preloadjs',
+                component: Preloadjs
             }
         ]
     },

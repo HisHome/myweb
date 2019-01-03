@@ -8,8 +8,6 @@
                 <h3>{{dec}}</h3>
             </div>
             <div class="btn_box">
-                <!-- <Button @click="getData" class="btn_nav" type="success" shape="circle" size="large"><Icon type="power"></Icon>&nbsp;目录</Button> &emsp;&emsp; -->
-                <!-- <Button style="background:#00ADB5" class="btn_nav" type="success" shape="circle" size="large"><Icon type="ios-paw"></Icon>&nbsp;简介</Button> -->
                 <Button  @click="getData" style="background:#00ADB5" class="btn_nav" type="success" shape="circle" size="large"><Icon type="ios-paw"></Icon>&nbsp;下载</Button>
             </div>
         </div>

@@ -1,33 +1,21 @@
 <template>
-  <div id="ckeditor">
-    <div>
+  <div>
       <!-- 工具栏容器 -->
       <div id="toolbar-container"></div>
       <!-- 编辑器容器 -->
       <div id="editor">
         <p>This is the initial editor content.</p>
       </div>
-    </div>
-    <Row>
-      <Col span="24" style="padding: 10px;">
-        <div
-          style="border: 1px solid #ccc;padding: 10px;margin-top: 10px;font-size: 16px;"
-          v-html="editorContent1"
-        ></div>
-      </Col>
-    </Row>
   </div>
 </template>
 <script>
 import CKEditor from "@ckeditor/ckeditor5-build-decoupled-document";
  import '@ckeditor/ckeditor5-build-decoupled-document/build/translations/zh-cn'
 
-
 export default {
   data() {
     return {
       editor: null,
-      editorContent1: ''
     };
   },
   props: {},
@@ -36,10 +24,6 @@ export default {
   },
   computed: {},
   methods: {
-    getData() {
-      console.log("=====================");
-      console.log(this.editorContent);
-    },
     initCKEditor() {
         class UploadAdapter {
             constructor(loader) {
@@ -76,12 +60,6 @@ export default {
         }
       CKEditor.create(document.querySelector("#editor"), {
           language: 'zh-cn',
-          autosave: {
-            save( editor ) {
-                console.log(111)
-                return saveData( editor.getData() );
-            }
-        }
       })
         .then(editor => {
             const toolbarContainer = document.querySelector("#toolbar-container");
@@ -91,6 +69,10 @@ export default {
                 return new UploadAdapter(loader);
             };
             this.editor.setData('erererer')
+            this.editor.model.document.on( 'change:data', evt => {
+                let content = this.editor.getData()
+				this.$emit( 'input', content );
+			} );
 
         })
         .catch(error => {
@@ -102,9 +84,5 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-#ckeditor {
-  padding: 20px;
-  min-height: 800px;
-}
 </style>
 

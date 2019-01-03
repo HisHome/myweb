@@ -13,6 +13,15 @@
                         <Submenu name="3" style="float:right;border-bottom:0;border-left:1px solid #fff;">
                             <template slot="title">
                                 <Icon type="stats-bars"></Icon>
+                                Createjs
+                            </template>
+                            <router-link v-for="(item, index) in menu.createjs" :key="index" :to="{name: item.routerName}">
+                                <Menu-item :name="item.menuItemName">{{item.name}}</Menu-item>
+                            </router-link>
+                        </Submenu>
+                        <Submenu name="3" style="float:right;border-bottom:0;border-left:1px solid #fff;">
+                            <template slot="title">
+                                <Icon type="stats-bars"></Icon>
                                 其他
                             </template>
                             <router-link v-for="(item, index) in menu.other" :key="index" :to="{name: item.routerName}">

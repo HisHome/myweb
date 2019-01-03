@@ -51,8 +51,40 @@ const menu = {
         },
         {
             routerName: 'ckEditor',
-            name: 'ckEditor',
+            name: 'ckEditor5',
             menuItemName: '3-3'
+        },
+        {
+            routerName: 'ckEditor4',
+            name: 'ckEditor4',
+            menuItemName: '3-4'
+        },
+        {
+            routerName: 'svg',
+            name: 'svg',
+            menuItemName: '3-5'
+        },
+    ],
+    createjs: [
+        {
+            routerName: 'easeljs',
+            name: 'easeljs',
+            menuItemName: '4-1'
+        },
+        {
+            routerName: 'tweenjs',
+            name: 'tweenjs',
+            menuItemName: '4-2'
+        },
+        {
+            routerName: 'soundjs',
+            name: 'soundjs',
+            menuItemName: '4-3'
+        },
+        {
+            routerName: 'preloadjs',
+            name: 'preloadjs',
+            menuItemName: '4-4'
         },
     ],
 
@@ -70,6 +102,12 @@ const config = {
         wangEditor: '3-1',
         tinymce:'3-2',
         ckEditor: '3-3',
+        ckEditor4: '3-4',
+        svg: '3-5',
+        easeljs:'4-1',
+        tweenjs:'4-2',
+        soundjs:'4-3',
+        preloadjs:'4-4',
 }
 export default {
     ...menu,
