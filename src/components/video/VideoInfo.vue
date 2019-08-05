@@ -31,10 +31,10 @@
       <div>
         <Row>
             <Col span="6">
-                <img src="../../public/img/full_image.jpg" alt="图片" style="width:100%;">
+                <!-- <img src="../../public/img/full_image.jpg" alt="图片" style="width:100%;"> -->
             </Col>
             <Col span="18">
-              
+
               <p>视频简介</p>
               <p>时长：2223</p>
               <p>内容：阿发是方式发送大</p>

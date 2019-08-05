@@ -21,6 +21,9 @@
         width:100%;
         height: 50px;
         background: #000;
+        position: absolute;
+        bottom: 0;
+        left: 0;
     }
     .beian{
         padding-top: 15px;

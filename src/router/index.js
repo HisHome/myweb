@@ -10,7 +10,7 @@ import Game from '@/view/Video'
 
 import Pic from '@/view/Picture'
 import About from '@/view/About'
-import Text from '@/view/Text'
+import Movie from '@/view/Movie'
 import UserPark from '@/view/UserPark'
 import OtherList from '@/view/OtherList'
 import VideoInfo from '@/components/video/VideoInfo'
@@ -21,6 +21,7 @@ import Tinymce from '@/view/other/Tinymce'
 import CKEditor5 from '@/view/other/CKEditor5'
 import CKEditor4 from '@/view/other/CKEditor4'
 import SVG from '@/view/other/SVG'
+import Html2canvas from '@/view/other/Html2canvas'
 
 import Createjs from '@/view/createjs/Createjs'
 import Easeljs from '@/view/createjs/Easeljs'
@@ -39,11 +40,11 @@ export default new Router({
       name: 'home',
       component: Home,
     },
-    // 文章
+    // 电影
     {
-      path:'/text',
-      name:'text',
-      component: Text
+      path:'/movie',
+      name:'movie',
+      component: Movie
     },
     // 图片
     {
@@ -111,6 +112,11 @@ export default new Router({
                 path: 'svg',
                 name: 'svg',
                 component: SVG
+            },
+            {
+                path: 'html2canvas',
+                name: 'html2canvas',
+                component: Html2canvas
             }
         ]
     },

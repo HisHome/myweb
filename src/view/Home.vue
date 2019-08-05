@@ -1,23 +1,23 @@
 <template>
-    <div id="home" :style="{height: height}" >
-        <!-- <MyHeader /> -->
+    <div id="home" :style="{height: height +'px'}" >
         <div class="home_box">
-            <div class="null_height"></div>
             <div class="home_content">
-                <h2>{{title}}</h2>
-                <h3>{{dec}}</h3>
-            </div>
-            <div class="btn_box">
-                <Button  @click="getData" style="background:#00ADB5" class="btn_nav" type="success" shape="circle" size="large"><Icon type="ios-paw"></Icon>&nbsp;下载</Button>
+                <Carousel v-model="value1" loop :height="carouselHeight" >
+                    <CarouselItem v-for="(item,index) in bannerList" :key="index">
+                        <router-link :to="{name: item.routerName}">
+                            <div class="demo-carousel" :style="{background: `url(${item.imgUrl}) no-repeat left center`, backgroundSize: '100% 100%'}" >{{item.name}}
+                            </div>
+                        </router-link>
+                    </CarouselItem>
+                </Carousel>
             </div>
         </div>
-        <!-- <MyFooter></MyFooter> -->
+        <MyFooter />
     </div>
 </template>
 <script>
-    import MyHeader from '@/components/layout/Header.vue';
-    import MyFooter from '@/components/layout/Footer'
-    const ExportJsonExcel = require('js-export-excel')
+    import banner from '@/libs/banner.js';
+    import MyFooter from "@/components/layout/Footer";
     export default {
         data(){
             return{
@@ -25,75 +25,46 @@
                 dec:'人生中的一道道门槛，迈过了就是门，迈不过就是坎',
                 msg:'这是首页',
                 height: '500px',
+                value1: 0,
+                bannerList: banner,
             }
         },
         created(){
-            console.log(document.body.clientHeight);
             const resize =()=>{
-                this.height = document.body.clientHeight  - 111 +'px'
+                this.height = document.body.clientHeight - 120;
+                this.carouselHeight = this.height * 0.7
             }
             window.onresize = resize;
             resize();
         },
         methods: {
             getData(){
-                var option={};
-                option.fileName = '导出的excel'
-                option.datas=[
-                    {
-                        sheetData:[
-                            {one:'一行一列',two:'一行二列'},
-                            {one:'二行一列',two:'二行二列'}
-                        ],
-                        sheetName:'sheet',
-                        // sheetFilter:['one','two'],
-                        // sheetHeader:['第一列','第二列'],
-                        columnWidths: [20, 20]
-                    }
-                ];
 
-                var toExcel = new ExportJsonExcel(option); //new
-                toExcel.saveExcel(); //保存
             }
         },
         components:{
-            MyHeader,
             MyFooter
         }
     }
 </script>
 <style scoped lang="less"  rel="stylesheet/less">
-    #home{
-        background:url('../public/img/full_image.jpg') center -75px;
-    }
     .home_box{
         min-height:400px;
-        padding-top:10%;
+        padding:8% 12% 0;
         height:100%;
         box-sizing:border-box;
-    }
-    .null_height{
-        height:10%;
+        background: -webkit-linear-gradient(#efdfd9, #fff); /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(#efdfd9, #fff); /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(#efdfd9, #fff); /* Firefox 3.6 - 15 */
+        background: linear-gradient(#efdfd9, #fff); /* 标准的语法 */
     }
     .home_content{
-        min-height:26%;
-        // padding-bottom:60px;
+        border: 1px solid #ececec;
+        box-shadow: 0px 0px 20px 0px #efdfd9;
+        border-radius: 8px;
+        background: #fff;
     }
-    .home_box h2,.home_box h3{
-        text-align:center;
-        line-height:40px;
-    }
-    .home_box h2{
-        font-size:26px;
-        color:#47cb89;
-        margin-bottom:12px;
-    }
-    .btn_box{
-        text-align:center;
-    }
-    .btn_box  .btn_nav{
-        width:200px;
-        height:50px;
-        font-size:20px;
+    .demo-carousel{
+        height: 100%;
     }
 </style>
