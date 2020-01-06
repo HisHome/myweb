@@ -7,7 +7,7 @@
 export default {
   data() {
     return {
-        content: '21212'
+        content: '等待更新'
     }
   },
   props: {

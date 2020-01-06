@@ -22,13 +22,13 @@
                         <Submenu name="3" style="float:right;border-bottom:0;border-left:1px solid #fff;">
                             <template slot="title">
                                 <Icon type="stats-bars"></Icon>
-                                其他
+                                目录
                             </template>
                             <router-link v-for="(item, index) in menu.other" :key="index" :to="{name: item.routerName}">
                                 <Menu-item :name="item.menuItemName">{{item.name}}</Menu-item>
                             </router-link>
                         </Submenu>
-                        <Submenu name="2" style="float:right;border-bottom:0;border-left:1px solid #fff;">
+                        <!-- <Submenu name="2" style="float:right;border-bottom:0;border-left:1px solid #fff;">
                             <template slot="title">
                                     <Icon type="stats-bars"></Icon>
                                     目录
@@ -43,7 +43,7 @@
                                     <Menu-item :name="item.menuItemName">{{item.name}}</Menu-item>
                                 </router-link>
                             </Menu-group>
-                        </Submenu>
+                        </Submenu> -->
                         <router-link :to="{name: 'home'}">
                             <Menu-item name="1" style="float:right;border-bottom:0;border-left:1px solid #fff;">
                                 <Icon type="ios-people"></Icon>

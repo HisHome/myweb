@@ -7,9 +7,9 @@
                 <h2>{{title}}</h2>
                 <h3>{{dec}}</h3>
             </div>
-            <div class="btn_box">
+            <!-- <div class="btn_box">
                 <Button  @click="getData" style="background:#00ADB5" class="btn_nav" type="success" shape="circle" size="large"><Icon type="ios-paw"></Icon>&nbsp;下载</Button>
-            </div>
+            </div> -->
         </div>
         <!-- <MyFooter></MyFooter> -->
     </div>
@@ -21,8 +21,8 @@
     export default {
         data(){
             return{
-                title:'彭洋的网站-终于上线了',
-                dec:'人生中的一道道门槛，迈过了就是门，迈不过就是坎',
+                title:'个人网站',
+                dec:'用户个人学习及技术试验',
                 msg:'这是首页',
                 height: '500px',
             }

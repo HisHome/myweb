@@ -13,7 +13,7 @@
 export default {
   data() {
     return {
-        content: '21212',
+        content: 'soundjs-音频播放试验',
         myInstance: null,
         currentTime: 0,
         setInterval: null
